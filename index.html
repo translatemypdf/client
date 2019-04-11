@@ -34,12 +34,12 @@
         <navbar-section v-bind:is-login="isLogin"></navbar-section>
 
         <add-file-form></add-file-form>
+        <file-list v-bind:sesuatu="fileList"></file-list>
 
         <register-modal></register-modal>
 
         <login-modal></login-modal>
 
-        <file-list v-bind:file-list="fileList"></file-list>
     </div>
 
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>

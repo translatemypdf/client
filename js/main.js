@@ -3,16 +3,32 @@ const baseURL = `http://localhost:3000`
 const app = new Vue ({
     el: "#app",
     data: {
-        isLogin: false
+        isLogin: false,
+        fileList: []
     },
     created() {
-        if (localStorage.getItem('access_token')) {
-            this.isLogin = true
-        } else {
-            this.isLogin = false
-        }
+        this.getAllFile();
+        // if (localStorage.getItem('access_token')) {
+        //     this.isLogin = true
+        //     this.getAllFile();
+        // } else {
+        //     this.isLogin = false
+        // }
     },
     methods: {
+        getAllFile() {
+            console.log('masuk ke function get all file')
 
+            axios
+                .get(`${baseURL}/file`)
+                .then (({data})=> {
+                    console.log("Hasil get all files: ", data)
+                    this.videoList = []
+                    data.forEach(filename => {
+                      this.fileList.push(filename)  
+                    })
+                    console.log("hasil looping all files", this.fileList)
+                })
+        }
     }
 })
