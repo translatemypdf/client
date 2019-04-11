@@ -1,32 +1,30 @@
 Vue.component('navbar-section', ({
     props: ['isLogin'],
     template: `
-    <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light">
-        <div class="container col-sm-12" style="background-color:#7ae2f9; color: black">
-            <div class="col-2">
-                <img src="https://s.w.org/style/images/about/WordPress-logotype-standard.png" height="70">
-            </div>
-            <div class="col-7" style="padding:20px">
-                <center>Welcome</center>
-            </div>
-            <div class="col-1" style="padding:20px" v-if="$parent.isLogin">
-                <button class="btn btn-primary" id="create_button" v-on:click.prevent="$emit('change-page', 'create')">Create</button>
-            </div>
-            <div class="col-2" style="padding:13px">
-                <div class="dropdown">
-                    <a class="btn dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown"
-                        aria-haspopup="true" aria-expanded="false">
-                        My Account
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
-                        <a class="dropdown-item" href="#">My Profile</a>
-                        <a class="dropdown-item" href="#">My Blogs</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Log Out</a>
-                    </div>
+    <div>
+  
+        <nav class="navbar navbar-expand-lg navbar-light fixed-top bg-dark">
+            <a class="navbar-brand" href="#" style="color:white">Translate my File </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse ml-5" id="navbarNavAltMarkup">
+                <div class="navbar-nav" >
+                    <a class="nav-item nav-link active" href="#" v-if="!isLogin" @click.prevent="showAllArticle()" style="color:white"> Home <span class="sr-only">(current)</span></a>
+                    <a class="nav-item nav-link active" href="#" v-if="isLogin" @click.prevent="showMyArticle()" style="color:white"> Home <span class="sr-only">(current)</span></a>
+                    <a class="nav-item nav-link" href="#" v-if="!isLogin" @click.prevent="showAllArticle()" style="color:white"> All Files </a>
+                    <a class="nav-item nav-link" href="#" v-if="!isLogin" @click.prevent="changePage('loginPage')" style="color:white">Login</a>
+                    <a class="nav-item nav-link" href="#" v-if="!isLogin" @click.prevent="changePage('registerPage')" style="color:white">Register</a>
+                    <a class="nav-item nav-link" href="#" v-if="isLogin" @click.prevent="signOut()" style="color:white">Logout</a>
                 </div>
             </div>
-        </div>
-    </nav>
+            <button class="btn btn-outline-success my-2 my-sm-0 mr-3" v-if="!isLogin" @click.prevent="inviteToLogin()" type="submit">Translate Me</button>
+            <button class="btn btn-outline-success my-2 my-sm-0 mr-3" v-if="isLogin" @click.prevent="changePage('createArticle')" type="submit">Translate Me</button>
+            <form class="form-inline">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" v-model="searchTag">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit" @click.prevent="searchMyArticle()">Search</button>
+            </form>
+        </nav>
+    </div>
     `
 }))
