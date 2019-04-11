@@ -13,8 +13,8 @@ Vue.component('navbar-section', ({
                     <a class="nav-item nav-link active" href="#" v-if="!isLogin" @click.prevent="showAllArticle()" style="color:white"> Home <span class="sr-only">(current)</span></a>
                     <a class="nav-item nav-link active" href="#" v-if="isLogin" @click.prevent="showMyArticle()" style="color:white"> Home <span class="sr-only">(current)</span></a>
                     <a class="nav-item nav-link" href="#" v-if="!isLogin" @click.prevent="showAllArticle()" style="color:white"> All Files </a>
-                    <a class="nav-item nav-link" href="#" v-if="!isLogin" @click.prevent="changePage('loginPage')" style="color:white">Login</a>
-                    <a class="nav-item nav-link" href="#" v-if="!isLogin" @click.prevent="changePage('registerPage')" style="color:white">Register</a>
+                    <a class="nav-item nav-link" href="#" v-if="!isLogin" @click.prevent="changePage('loginPage')" style="color:white" data-toggle="modal" data-target="#login-modal">Login</a>
+                    <a class="nav-item nav-link" href="#" v-if="!isLogin" @click.prevent="changePage('registerPage')" style="color:white" data-toggle="modal" data-target="#register-modal">Register</a>
                     <a class="nav-item nav-link" href="#" v-if="isLogin" @click.prevent="signOut()" style="color:white">Logout</a>
                 </div>
             </div>
