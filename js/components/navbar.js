@@ -21,7 +21,7 @@ Vue.component('navbar-section', ({
             <button class="btn btn-outline-success my-2 my-sm-0 mr-3" v-if="!isLogin" @click.prevent="inviteToLogin()" type="submit">Translate Me</button>
             <button class="btn btn-outline-success my-2 my-sm-0 mr-3" v-if="isLogin" @click.prevent="changePage('createArticle')" type="submit">Translate Me</button>
             <form class="form-inline">
-                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" v-model="searchTag">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit" @click.prevent="searchMyArticle()">Search</button>
             </form>
         </nav>
