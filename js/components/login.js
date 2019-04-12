@@ -1,14 +1,9 @@
 Vue.component('login-modal', ({
+  props: ['isLogin'],
   data() {
     return {
       email: '',
-      password: '',
-      isLogin: 'false'
-    }
-  },
-  created() {
-    if(localStorage.getItem('token')) {
-      isLogin = true
+      password: ''
     }
   },
   methods: {
@@ -27,8 +22,8 @@ Vue.component('login-modal', ({
             localStorage.setItem('id', id)
             localStorage.setItem('name', name)
             localStorage.setItem('email', email)
-            this.isLogin = true
             swal("Login Success!", "You clicked the button!", "success");
+            this.$emit('success-login')
           })
           .catch(err => {
             console.log(err)
