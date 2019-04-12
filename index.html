@@ -33,7 +33,7 @@
     <div id="app">
         <navbar-section v-bind:is-login="isLogin"></navbar-section>
 
-        <add-file-form></add-file-form>
+        <add-file-form v-on:get-allfiles="getAllFile"></add-file-form>
         <file-list v-bind:sesuatu="fileList"></file-list>
 
         <register-modal></register-modal>

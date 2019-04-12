@@ -18,7 +18,7 @@ const app = new Vue ({
     methods: {
         getAllFile() {
             console.log('masuk ke function get all file')
-
+            this.fileList=[];
             axios
                 .get(`${baseURL}/file`)
                 .then (({data})=> {
