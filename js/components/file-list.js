@@ -14,9 +14,9 @@ Vue.component('file-list', {
     template: `
         <div class="row">
             <file-card
-                v-for="(file, index) in sesuatu"
+                v-for="(hehehe, index) in sesuatu"
                 v-bind:key="index"
-                v-bind:file="file">
+                v-bind:haloo="hehehe">
             </file-card>
         </div>
     `

@@ -27,14 +27,16 @@
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+
+    <link rel="stylesheet" type="text/css" href="./js/style.css">
 </head>
 
 <body>
     <div id="app">
-        <navbar-section v-bind:is-login="isLogin"></navbar-section>
+        <navbar-section v-bind:is-login="isLogin" v-on:keluar-bro="isLogin = false"></navbar-section>
 
-        <add-file-form v-on:get-allfiles="getAllFile"></add-file-form>
-        <file-list v-bind:sesuatu="fileList"></file-list>
+        <add-file-form v-if="isLogin" v-on:panggil-ortu-donk="getAllFile"></add-file-form>
+        <file-list v-if="isLogin" v-bind:sesuatu="fileList"></file-list>
 
         <register-modal></register-modal>
 

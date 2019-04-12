@@ -24,7 +24,7 @@ Vue.component('add-file-form', {
                       this.name = '',
                       this.tag = ''
                       console.log("Berhasil upload Post:", data)
-                      this.$emit('get-allfiles')
+                      this.$emit('panggil-ortu-donk')
                   })
                   .catch(err => {
                       console.log(err)

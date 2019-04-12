@@ -14,7 +14,7 @@ Vue.component('login-modal', ({
           password: this.password
         })
           .then(user => {
-            console.log('success')
+            console.log('success login')
             this.email=''
             this.password=''
             const { token, id, email, name } = user.data
@@ -22,12 +22,20 @@ Vue.component('login-modal', ({
             localStorage.setItem('id', id)
             localStorage.setItem('name', name)
             localStorage.setItem('email', email)
-            swal("Login Success!", "You clicked the button!", "success");
+            Swal.fire({
+              position: 'top-end',
+              type: 'success',
+              title: 'Login Success!',
+              showConfirmButton: false,
+              timer: 1500
+            })
             this.$emit('success-login')
           })
           .catch(err => {
             console.log(err)
             swal("Email / password salah!", "You clicked the button!", "error");
+            this.email=''
+            this.password=''
           })
     }
   },
@@ -43,7 +51,7 @@ Vue.component('login-modal', ({
               </button>
           </div>
           <div class="modal-body">
-              <form v-on:submit.prevent="login">
+              <form >
                   <div class="form-group">
                       <label class="col-form-label">Email:</label>
                       <input type="text" v-model="email" class="form-control" name="email" placeholder="Email" required>
@@ -54,7 +62,7 @@ Vue.component('login-modal', ({
                   </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
-                  <button type="submit" class="btn btn-success">Login</button>
+                  <button type="submit" class="btn btn-success" @click.prevent="login" data-dismiss="modal">Login</button>
                 </div>
               </form>
           </div>
