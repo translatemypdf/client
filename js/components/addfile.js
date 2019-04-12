@@ -10,7 +10,7 @@ Vue.component('add-file-form', {
         createFile() {
             console.log("Masuk create", this.file, this.name)  
             let formData = new FormData()
-              formData.append('image', this.file)
+              formData.append('file', this.file)
               formData.append('name', this.name)
             //   console.log("data yang dikirim ke server ===>", formData)
               axios
