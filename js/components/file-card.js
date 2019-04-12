@@ -27,6 +27,9 @@ Vue.component('file-card', {
                 <center><p>{{file.name}}</p></center>
                 <div class="card-body">
                     {{file.path}}
+                    <embed :src="file.path" type="application/pdf" width="100%" height="600px" />
+
+                    
                     <div class="fb-share-button" data-href="file.link" data-layout="button_count" data-size="small">
                         <a target="_blank" :href="getlink()" class="fb-xfbml-parse-ignore">Share on Facebook</a>
                     </div>
