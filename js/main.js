@@ -8,12 +8,12 @@ const app = new Vue ({
     },
     created() {
         this.getAllFile();
-        // if (localStorage.getItem('access_token')) {
-        //     this.isLogin = true
-        //     this.getAllFile();
-        // } else {
-        //     this.isLogin = false
-        // }
+        if (localStorage.getItem('access_token')) {
+            this.isLogin = true
+            this.getAllFile();
+        } else {
+            this.isLogin = false
+        }
     },
     methods: {
         getAllFile() {
