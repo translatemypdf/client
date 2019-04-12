@@ -15,10 +15,22 @@ Vue.component('register-modal', {
           password: this.password
         })
           .then(user => {
-            swal("success Register!", "You clicked the button!", "success");
+            Swal.fire({
+              position: 'top-end',
+              type: 'success',
+              title: 'Register Success! Please click login now',
+              showConfirmButton: false,
+              timer: 1500
+            })
+            this.name=''
+            this.email=''
+            this.password=''
           })
           .catch(err => {
             swal("field tidak boleh kosong!", "You clicked the button!", "error");
+            this.name=''
+            this.email=''
+            this.password=''
           })
     }
   },
@@ -50,7 +62,7 @@ Vue.component('register-modal', {
                     </div>
                     <div class="modal-footer">
                       <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-                      <button type="submit" class="btn btn-success">Register</button>
+                      <button type="submit" class="btn btn-success" v-on:click.prevent="register" data-dismiss="modal">Register</button>
                     </div>
                 </form>
             </div>

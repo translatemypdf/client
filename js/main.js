@@ -8,7 +8,7 @@ const app = new Vue ({
     },
     created() {
         this.getAllFile();
-        if (localStorage.getItem('access_token')) {
+        if (localStorage.getItem('token')) {
             this.isLogin = true
             this.getAllFile();
         } else {
